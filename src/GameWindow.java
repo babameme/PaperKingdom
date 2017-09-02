@@ -3,6 +3,7 @@ import bases.GameObject;
 import bases.inputs.InputManager;
 import bases.scenes.SceneManager;
 import bases.settings.Settings;
+import org.dyn4j.dynamics.World;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -26,11 +27,17 @@ public class GameWindow extends Frame {
 
     InputManager inputManager = InputManager.instance;
 
+    private World world;
+
     public GameWindow() {
         pack();
         setupGameLoop();
         setupWindow();
         setupLevel();
+    }
+
+    private void setupObjects() {
+
     }
 
     private void setupLevel() {
