@@ -48,6 +48,6 @@ public class Settings {
     }
 
     private Settings() {
-        this(1024, 768, 384, 768);
+        this(800, 600, 800, 600);
     }
 }
