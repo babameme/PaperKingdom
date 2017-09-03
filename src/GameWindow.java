@@ -16,7 +16,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
+import java.awt.image.BufferStrategy;
+//import java.awt.image.BufferedImage;
 
 /**
  * Created by huynq on 7/29/17.
@@ -27,10 +28,9 @@ public class GameWindow extends JFrame {
 
     private long lastTimeUpdate, currentTime, diff;
     private double elapsedTime;
-    private BufferedImage blackBackground;
 
-    private BufferedImage backbufferImage;
-    private Graphics2D backbufferGraphics;
+    protected Canvas canvas;
+    Dimension size;
 
     private AffineTransform yFlip = AffineTransform.getScaleInstance(1,-1);
     private AffineTransform move = AffineTransform.getTranslateInstance(400, -300);
@@ -40,7 +40,6 @@ public class GameWindow extends JFrame {
     private World world;
 
     public GameWindow() {
-        pack();
         setupGameLoop();
         setupWindow();
         initializeWorld();
@@ -53,11 +52,11 @@ public class GameWindow extends JFrame {
         GameObject floor = new GameObject();
         floor.addFixture(new BodyFixture(floorRect));
         floor.setMass(MassType.INFINITE);
+
         // move the floor down a bit
         //floor.translate(0.0, -4.0);
         floor.translate(0.0, -4.0);
         this.world.addBody(floor);
-
 
         // create a triangle object
         Triangle triShape = new Triangle(
@@ -80,9 +79,18 @@ public class GameWindow extends JFrame {
 
     private void setupWindow() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(Settings.instance.getWindowWidth(), Settings.instance.getWindowHeight());
-
         this.setTitle("<Enter title here>");
+        size = new Dimension(800,600);
+        this.canvas = new Canvas();
+        this.canvas.setPreferredSize(size);
+        this.canvas.setMinimumSize(size);
+        this.canvas.setMaximumSize(size);
+        this.add(this.canvas);
+        this.setResizable(false);
+        this.pack();
+
+        /*this.setSize(Settings.instance.getWindowWidth(), Settings.instance.getWindowHeight());
+
         this.setVisible(true);
 
         this.backbufferImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -92,7 +100,7 @@ public class GameWindow extends JFrame {
         Graphics2D backgroundGraphics = (Graphics2D) this.blackBackground.getGraphics();
         backgroundGraphics.setColor(Color.PINK);
         backgroundGraphics.fillRect(0, 0, this.getWidth(), this.getHeight());
-        backgroundGraphics.dispose();
+        backgroundGraphics.dispose();*/
 
         this.addWindowListener(new WindowAdapter() {
             @Override
@@ -118,10 +126,12 @@ public class GameWindow extends JFrame {
             }
         });
 
-        Settings.instance.setWindowInsets(this.getInsets());
+        //Settings.instance.setWindowInsets(this.getInsets());
     }
 
     public void loop() {
+        this.canvas.setIgnoreRepaint(true);
+        this.canvas.createBufferStrategy(2);
         while(true) {
             if (lastTimeUpdate == -1) {
                 lastTimeUpdate = System.nanoTime();
@@ -140,10 +150,17 @@ public class GameWindow extends JFrame {
     }
 
     private void gameLoop() {
-        backbufferGraphics.transform(yFlip);
-        backbufferGraphics.transform(move);
+        Graphics2D g2d = (Graphics2D) this.canvas.getBufferStrategy().getDrawGraphics();
+        g2d.transform(yFlip);
+        g2d.transform(move);
         run();
-        render();
+        render(g2d);
+        g2d.dispose();
+        BufferStrategy strategy = this.canvas.getBufferStrategy();
+        if (!strategy.contentsLost()){
+            strategy.show();
+        }
+        Toolkit.getDefaultToolkit().sync();
         SceneManager.changeSceneIfNeeded();
     }
 
@@ -152,14 +169,13 @@ public class GameWindow extends JFrame {
         //GameObject.runAllActions();
     }
 
-    private void render() {
-        backbufferGraphics.drawImage(blackBackground, -400, -300, null);
-        backbufferGraphics.translate(0.0, -1.0 * SCALE);
-        for (int i = 0; i < this.world.getBodyCount(); i++){
+    private void render(Graphics2D g2d) {
+       g2d.setColor(Color.PINK);
+       g2d.fillRect(-400,-300,800,600);
+       g2d.translate(0.0, -1.0 * SCALE);
+        for (int i = 0; i < this.world.getBodyCount(); i++) {
             GameObject gameObject = (GameObject) this.world.getBody(i);
-            gameObject.render(backbufferGraphics);
+            gameObject.render(g2d);
         }
-        //GameObject.renderAll(backbufferGraphics);
-        getGraphics().drawImage(backbufferImage, 0, 0, null);
     }
 }
