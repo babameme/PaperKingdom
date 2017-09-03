@@ -23,7 +23,7 @@ import java.awt.image.BufferStrategy;
  * Created by huynq on 7/29/17.
  */
 public class GameWindow extends JFrame {
-    public static final double SCALE = 45.0;
+    public static final double SCALE = 10.0;
     public static final double NANO_TO_BASE = 1.0e9;
 
     private long lastTimeUpdate, currentTime, diff;
@@ -48,17 +48,71 @@ public class GameWindow extends JFrame {
     private void initializeWorld() {
         world = new World();
 
-        Rectangle floorRect = new Rectangle(15.0, 1.0);
-        GameObject floor = new GameObject();
-        floor.addFixture(new BodyFixture(floorRect));
-        floor.setMass(MassType.INFINITE);
+        Rectangle rectShape = new Rectangle(10.0, 25.0);
+        GameObject rectangle = new GameObject();
+        rectangle.addFixture(rectShape);
+        rectangle.setMass(MassType.INFINITE);
+        rectangle.translate(-35.0, 17.5);
+        rectangle.setColor(Color.red);
+        this.world.addBody(rectangle);
 
-        // move the floor down a bit
-        //floor.translate(0.0, -4.0);
-        floor.translate(0.0, -4.0);
-        this.world.addBody(floor);
+        rectShape = new Rectangle(40.0, 15.0);
+        rectangle = new GameObject();
+        rectangle.addFixture(rectShape);
+        rectangle.setMass(MassType.INFINITE);
+        rectangle.translate(-10,22.5);
+        rectangle.setColor(Color.red);
+        this.world.addBody(rectangle);
 
-        // create a triangle object
+        rectShape = new Rectangle(30, 25);
+        rectangle = new GameObject();
+        rectangle.addFixture(rectShape);
+        rectangle.setMass(MassType.INFINITE);
+        rectangle.translate(25, 17.5);
+        rectangle.setColor(Color.red);
+        this.world.addBody(rectangle);
+
+        rectShape = new Rectangle(10, 10);
+        rectangle = new GameObject();
+        rectangle.addFixture(rectShape);
+        rectangle.setMass(MassType.INFINITE);
+        rectangle.translate(15, 0);
+        rectangle.setColor(Color.red);
+        this.world.addBody(rectangle);
+
+        rectShape = new Rectangle(40, 25);
+        rectangle = new GameObject();
+        rectangle.addFixture(rectShape);
+        rectangle.setMass(MassType.INFINITE);
+        rectangle.translate(-20, -17.5);
+        rectangle.setColor(Color.red);
+        this.world.addBody(rectangle);
+
+        rectShape = new Rectangle(20, 10);
+        rectangle = new GameObject();
+        rectangle.addFixture(rectShape);
+        rectangle.setMass(MassType.INFINITE);
+        rectangle.translate(-10, 0);
+        rectangle.setColor(Color.red);
+        this.world.addBody(rectangle);
+
+        rectShape = new Rectangle(40, 15);
+        rectangle = new GameObject();
+        rectangle.addFixture(rectShape);
+        rectangle.setMass(MassType.INFINITE);
+        rectangle.translate(20, -22.5);
+        rectangle.setColor(Color.red);
+        this.world.addBody(rectangle);
+
+        rectShape = new Rectangle(10, 10);
+        rectangle = new GameObject();
+        rectangle.addFixture(rectShape);
+        rectangle.setMass(MassType.INFINITE);
+        rectangle.translate(35, -10);
+        rectangle.setColor(Color.red);
+        this.world.addBody(rectangle);
+
+        /*// create a triangle object
         Triangle triShape = new Triangle(
                 new Vector2(0.0, 0.5),
                 new Vector2(-0.5, -0.5),
@@ -70,7 +124,7 @@ public class GameWindow extends JFrame {
         // test having a velocity
         triangle.getLinearVelocity().set(0.5, 0.0);
         triangle.setAngularVelocity(2.5);
-        this.world.addBody(triangle);
+        this.world.addBody(triangle);*/
     }
 
     private void setupGameLoop() {
@@ -88,19 +142,8 @@ public class GameWindow extends JFrame {
         this.add(this.canvas);
         this.setResizable(false);
         this.pack();
-
-        /*this.setSize(Settings.instance.getWindowWidth(), Settings.instance.getWindowHeight());
-
         this.setVisible(true);
 
-        this.backbufferImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
-        this.backbufferGraphics = (Graphics2D) this.backbufferImage.getGraphics();
-
-        this.blackBackground = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_ARGB);
-        Graphics2D backgroundGraphics = (Graphics2D) this.blackBackground.getGraphics();
-        backgroundGraphics.setColor(Color.PINK);
-        backgroundGraphics.fillRect(0, 0, this.getWidth(), this.getHeight());
-        backgroundGraphics.dispose();*/
 
         this.addWindowListener(new WindowAdapter() {
             @Override
@@ -170,7 +213,7 @@ public class GameWindow extends JFrame {
     }
 
     private void render(Graphics2D g2d) {
-       g2d.setColor(Color.PINK);
+       g2d.setColor(Color.WHITE);
        g2d.fillRect(-400,-300,800,600);
        g2d.translate(0.0, -1.0 * SCALE);
         for (int i = 0; i < this.world.getBodyCount(); i++) {
