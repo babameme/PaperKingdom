@@ -19,10 +19,13 @@ public class GameObject extends Body{
                 (float)Math.random() * 0.5f + 0.5f);
     }
 
-    public void setColor(Color color) {
+    public GameObject(Color color){
         this.color = color;
     }
 
+    public void setColor(Color color) {
+        this.color = color;
+    }
 
     public void render(Graphics2D g2d, double scale){
         ot = g2d.getTransform();

@@ -65,7 +65,6 @@ public abstract class SimulationFrame extends JFrame{
                 gameLoop();
                 elapsedTime = diff / NANO_TO_BASE;
                 lastTimeUpdate = currentTime;
-                this.world.update(elapsedTime);
                 //System.out.println("Update world");
             }
         }
@@ -76,6 +75,7 @@ public abstract class SimulationFrame extends JFrame{
         this.transform(g2d);
         this.clear(g2d);
         this.render(g2d,elapsedTime);
+        this.update(g2d, elapsedTime);
         g2d.dispose();
         strategy = this.canvas.getBufferStrategy();
         if (!strategy.contentsLost()){
@@ -84,14 +84,22 @@ public abstract class SimulationFrame extends JFrame{
         Toolkit.getDefaultToolkit().sync();
     }
 
+    protected void update(Graphics2D g2d, double elapsedTime) {
+        this.world.update(elapsedTime);
+    }
+
     private void render(Graphics2D g2d, double elapsedTime) {
         g2d.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         for (int i = 0; i < this.world.getBodyCount(); i++) {
             GameObject gameObject = (GameObject) this.world.getBody(i);
-            gameObject.render(g2d, this.scale);
+            this.render(g2d, gameObject);
         }
+    }
+
+    protected void render(Graphics2D g2d, GameObject gameObject){
+        gameObject.render(g2d, this.scale);
     }
 
     protected void transform(Graphics2D g2d) {
