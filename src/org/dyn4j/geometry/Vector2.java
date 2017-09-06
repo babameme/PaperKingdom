@@ -48,7 +48,9 @@ public class Vector2 {
 	
 	/** A vector representing the y-axis; this vector should not be changed at runtime; used internally */
 	static final Vector2 Y_AXIS = new Vector2(0.0, 1.0);
-	
+
+	public static final Vector2 ZERO = new Vector2(0.0, 0.0);
+
 	/** The magnitude of the x component of this {@link Vector2} */
 	public double x;
 	
@@ -762,5 +764,9 @@ public class Vector2 {
 		if (a > Math.PI) return a - Geometry.TWO_PI;
 		if (a < -Math.PI) return a + Geometry.TWO_PI;
 		return a;
+	}
+
+	public Vector2 clone(){
+		return new Vector2(x, y);
 	}
 }

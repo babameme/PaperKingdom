@@ -1,6 +1,7 @@
 package simulations;
 
 import org.dyn4j.dynamics.World;
+import org.dyn4j.geometry.Vector2;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,26 +21,32 @@ public abstract class SimulationFrame extends JFrame{
     private BufferStrategy strategy;
     private int w, h;
 
+    private Camera camera;
+    private Vector2 position;
+
     private final AffineTransform yFlip, move;
 
     public SimulationFrame(String name, double scale) {
         super(name);
         this.scale = scale;
         this.world = new World();
-        size = new Dimension(800, 600);
+        size = new Dimension(736, 414);
         this.canvas = new Canvas();
         this.canvas.setPreferredSize(size);
         this.canvas.setMinimumSize(size);
         this.canvas.setMaximumSize(size);
         this.add(this.canvas);
         this.setResizable(false);
+
         this.pack();
 
         w = this.canvas.getWidth();
         h = this.canvas.getHeight();
-        System.out.println(Integer.toString(w) + " " + Integer.toString(h));
+        position = new Vector2(w / 2, -h / 2);
+        //System.out.println(Integer.toString(w) + " " + Integer.toString(h));
         yFlip = AffineTransform.getScaleInstance(1,-1);
-        move = AffineTransform.getTranslateInstance(w/2, -h/2);
+        move = AffineTransform.getTranslateInstance(position.x, position.y);
+        camera = new Camera();
         this.initializeWorld();
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,8 +81,8 @@ public abstract class SimulationFrame extends JFrame{
         Graphics2D g2d = (Graphics2D) this.canvas.getBufferStrategy().getDrawGraphics();
         this.transform(g2d);
         this.clear(g2d);
-        this.render(g2d,elapsedTime);
         this.update(g2d, elapsedTime);
+        this.render(g2d,elapsedTime);
         g2d.dispose();
         strategy = this.canvas.getBufferStrategy();
         if (!strategy.contentsLost()){
@@ -85,17 +92,17 @@ public abstract class SimulationFrame extends JFrame{
     }
 
     protected void update(Graphics2D g2d, double elapsedTime) {
+        for (int i = 0; i < this.world.getBodyCount(); i++) {
+            GameObject gameObject = (GameObject) this.world.getBody(i);
+            gameObject.update();
+            if(i == 1)
+            camera.follow(gameObject);
+        }
         this.world.update(elapsedTime);
     }
 
     private void render(Graphics2D g2d, double elapsedTime) {
-        g2d.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-        for (int i = 0; i < this.world.getBodyCount(); i++) {
-            GameObject gameObject = (GameObject) this.world.getBody(i);
-            this.render(g2d, gameObject);
-        }
+        camera.render(this, g2d, elapsedTime);
     }
 
     protected void render(Graphics2D g2d, GameObject gameObject){
@@ -110,5 +117,13 @@ public abstract class SimulationFrame extends JFrame{
     protected void clear(Graphics2D g2d){
         g2d.setColor(Color.YELLOW);
         g2d.fillRect(-w/2, -h/2, w, h);
+    }
+
+    public AffineTransform getMove() {
+        return move;
+    }
+
+    public Vector2 getPosition() {
+        return position;
     }
 }
