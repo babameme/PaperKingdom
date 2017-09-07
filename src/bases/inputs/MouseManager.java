@@ -15,4 +15,9 @@ public class MouseManager {
         oldPoint = movedPoint;
         movedPoint = e.getLocationOnScreen();
     }
+
+    public void mouseDragged(MouseEvent e) {
+        oldPoint = movedPoint;
+        movedPoint = e.getLocationOnScreen();
+    }
 }

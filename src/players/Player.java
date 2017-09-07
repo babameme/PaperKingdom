@@ -4,7 +4,7 @@ import bases.inputs.MouseManager;
 import bases.renderers.FixtureRenderer;
 import org.dyn4j.geometry.Geometry;
 import org.dyn4j.geometry.MassType;
-import simulations.GameObject;
+import bases.GameObject;
 
 import java.awt.*;
 
@@ -14,7 +14,7 @@ public class Player extends GameObject{
     public Player() {
         super();
         this.renderer = new FixtureRenderer();
-        this.addFixture(Geometry.createCircle(1));
+        this.addFixture(Geometry.createCircle(10));
         this.setMass(MassType.NORMAL);
         this.setAutoSleepingEnabled(false);
 
@@ -29,6 +29,7 @@ public class Player extends GameObject{
         this.setAutoSleepingEnabled(false);
     }
 
+    //TODO: Fix to drag
     @Override
     public void update() {
         super.update();

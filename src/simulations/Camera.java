@@ -1,5 +1,6 @@
 package simulations;
 
+import bases.GameObject;
 import org.dyn4j.geometry.Vector2;
 
 import java.awt.*;

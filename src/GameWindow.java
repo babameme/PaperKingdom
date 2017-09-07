@@ -1,10 +1,10 @@
 import bases.inputs.MouseManager;
-import org.dyn4j.dynamics.BodyFixture;
-import org.dyn4j.dynamics.joint.MotorJoint;
+import bases.renderers.ImageRenderer;
+import obstacles.Obstacle;
 import org.dyn4j.geometry.*;
 import org.dyn4j.geometry.Rectangle;
 import players.Player;
-import simulations.GameObject;
+import bases.GameObject;
 import simulations.SimulationFrame;
 
 import java.awt.*;
@@ -17,7 +17,13 @@ public class GameWindow extends SimulationFrame{
     private final class CustomMouseAdapter extends MouseAdapter {
         @Override
         public void mouseMoved(MouseEvent e) {
-            MouseManager.instance.mouseMoved(e);
+            //MouseManager.instance.mouseMoved(e);
+        }
+
+        @Override
+        public void mouseDragged(MouseEvent e) {
+            super.mouseDragged(e);
+            MouseManager.instance.mouseDragged(e);
         }
     }
 
@@ -35,6 +41,7 @@ public class GameWindow extends SimulationFrame{
         this.world.setGravity(world.ZERO_GRAVITY);
         addPlayer();
         //addFloor();
+        addObstacle();
     }
 
     private void addPlayer() {
@@ -42,6 +49,9 @@ public class GameWindow extends SimulationFrame{
         player.translate(-20, 0);
 
         this.world.addBody(player);
+//        GameObject gameObject = new GameObject(ImageRenderer.create("assets/images/green_square.png"));
+//        gameObject.getPosition().set(100, 100);
+//        this.world.addBody(gameObject);
     }
 
     @Override
@@ -80,6 +90,9 @@ public class GameWindow extends SimulationFrame{
         circle.setColor(Color.RED);
         circle.translate(5, 10);
         this.world.addBody(circle);
-
+    }
+    private void addObstacle() {
+        Obstacle obstacle1 = new Obstacle(new Circle(20), 0, MassType.INFINITE, 0, new Vector2(0, 0), new Vector2(-200, 0), 0);
+        this.world.addBody(obstacle1);
     }
 }

@@ -1,5 +1,5 @@
 import org.dyn4j.geometry.Vector2;
-import simulations.GameObject;
+import bases.GameObject;
 
 public class ViewPort {
     private Vector2 position;

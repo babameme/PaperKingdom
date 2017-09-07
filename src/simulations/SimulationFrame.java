@@ -1,5 +1,6 @@
 package simulations;
 
+import bases.GameObject;
 import org.dyn4j.dynamics.World;
 import org.dyn4j.geometry.Vector2;
 
@@ -95,8 +96,8 @@ public abstract class SimulationFrame extends JFrame{
         for (int i = 0; i < this.world.getBodyCount(); i++) {
             GameObject gameObject = (GameObject) this.world.getBody(i);
             gameObject.update();
-            if(i == 1)
-            camera.follow(gameObject);
+//            if(i == 1)
+//            camera.follow(gameObject);
         }
         this.world.update(elapsedTime);
     }
