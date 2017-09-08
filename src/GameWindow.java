@@ -1,6 +1,12 @@
 import bases.inputs.MouseManager;
 import bases.renderers.ImageRenderer;
 import obstacles.Obstacle;
+import org.dyn4j.collision.broadphase.BroadphasePair;
+import org.dyn4j.collision.narrowphase.Gjk;
+import org.dyn4j.collision.narrowphase.NarrowphaseDetector;
+import org.dyn4j.collision.narrowphase.Penetration;
+import org.dyn4j.dynamics.Body;
+import org.dyn4j.dynamics.BodyFixture;
 import org.dyn4j.geometry.*;
 import org.dyn4j.geometry.Rectangle;
 import players.Player;
@@ -10,9 +16,11 @@ import simulations.SimulationFrame;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 public class GameWindow extends SimulationFrame{
     private Player player;
+    NarrowphaseDetector np = new Gjk();
 
     private final class CustomMouseAdapter extends MouseAdapter {
         @Override
@@ -45,8 +53,8 @@ public class GameWindow extends SimulationFrame{
     }
 
     private void addPlayer() {
-        player = new Player();
-        player.translate(-20, 0);
+        player = new Player(new Circle(10), 0, MassType.NORMAL, 0, new Vector2(15,0), new Vector2(-300,0));
+        player.getFixture(0).setSensor(true);
 
         this.world.addBody(player);
 //        GameObject gameObject = new GameObject(ImageRenderer.create("assets/images/green_square.png"));
@@ -57,6 +65,23 @@ public class GameWindow extends SimulationFrame{
     @Override
     protected void update(Graphics2D g2d, double elapsedTime) {
         super.update(g2d, elapsedTime);
+        List<BroadphasePair<Body, BodyFixture>> pairs = world.getBroadphaseDetector().detect();
+        for (BroadphasePair<Body, BodyFixture> pair : pairs){
+            Body body1 = pair.getCollidable1();
+            Body body2 = pair.getCollidable2();
+            BodyFixture fixture1 = pair.getFixture1();
+            BodyFixture fixture2 = pair.getFixture2();
+            Transform transform1 = body1.getTransform();
+            Transform transform2 = body2.getTransform();
+            Convex convex2 = fixture2.getShape();
+            Convex convex1 = fixture1.getShape();
+            Penetration p = new Penetration();
+            if (np.detect(convex1,transform1,convex2,transform2,p)){
+                if (player == body1 || player == body2){
+                    System.out.println("Player collide");
+                }
+            }
+        }
     }
 
     private Vector2 toWorldCoordinates(Point point) {
