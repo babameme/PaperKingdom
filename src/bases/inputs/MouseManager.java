@@ -11,11 +11,6 @@ public class MouseManager {
 
     }
 
-    public void mouseMoved(MouseEvent e) {
-        oldPoint = movedPoint;
-        movedPoint = e.getLocationOnScreen();
-    }
-
     public void mouseDragged(MouseEvent e) {
         oldPoint = movedPoint;
         movedPoint = e.getLocationOnScreen();

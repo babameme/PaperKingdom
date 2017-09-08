@@ -1,15 +1,13 @@
-package paper.obstacles;
+package paper.friends;
+
 import bases.GameObject;
 import bases.renderers.FixtureRenderer;
 import org.dyn4j.geometry.Convex;
 import org.dyn4j.geometry.MassType;
 import org.dyn4j.geometry.Vector2;
 
-import java.util.Vector;
-
-public class Obstacle extends GameObject {
-
-    public Obstacle(Convex convex, double rotation, MassType massType, double angularVelocity, Vector2 linearVelocity, Vector2 position) {
+public class Friend extends GameObject{
+    public Friend(Convex convex, double rotation, MassType massType, double angularVelocity, Vector2 linearVelocity, Vector2 position) {
         super();
         convex.rotate(rotation);
         this.addFixture(convex);
@@ -19,5 +17,4 @@ public class Obstacle extends GameObject {
         this.translate(position);
         this.renderer = new FixtureRenderer();
     }
-
 }

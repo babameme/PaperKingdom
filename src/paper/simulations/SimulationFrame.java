@@ -69,12 +69,11 @@ public abstract class SimulationFrame extends JFrame{
         while(true) {
             currentTime = System.nanoTime();
             diff = currentTime - lastTimeUpdate;
-            if (diff > 17000000) {
+            //if (diff > 17000000) {
                 gameLoop();
                 elapsedTime = diff / NANO_TO_BASE;
                 lastTimeUpdate = currentTime;
-                //System.out.println("Update world");
-            }
+            //}
         }
     }
 

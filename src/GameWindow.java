@@ -1,5 +1,6 @@
 import bases.inputs.MouseManager;
 import bases.renderers.ImageRenderer;
+import paper.friends.Friend;
 import paper.obstacles.Obstacle;
 import org.dyn4j.collision.broadphase.BroadphasePair;
 import org.dyn4j.collision.narrowphase.Gjk;
@@ -24,11 +25,6 @@ public class GameWindow extends SimulationFrame{
 
     private final class CustomMouseAdapter extends MouseAdapter {
         @Override
-        public void mouseMoved(MouseEvent e) {
-            //MouseManager.instance.mouseMoved(e);
-        }
-
-        @Override
         public void mouseDragged(MouseEvent e) {
             super.mouseDragged(e);
             MouseManager.instance.mouseDragged(e);
@@ -50,16 +46,20 @@ public class GameWindow extends SimulationFrame{
         addPlayer();
         //addFloor();
         addObstacle();
+        addFriend();
+    }
+
+    private void addFriend() {
+        Friend friend = new Friend(new Rectangle(30, 40), 0.4, MassType.FIXED_ANGULAR_VELOCITY, 1.7, new Vector2(0,0), new Vector2(0, 100));
+        friend.setColor(Color.BLUE);
+        this.world.addBody(friend);
     }
 
     private void addPlayer() {
-        player = new Player(new Circle(10), 0, MassType.NORMAL, 0, new Vector2(15,0), new Vector2(-300,0));
-        player.getFixture(0).setSensor(true);
+        player = new Player(new Circle(10), 0, MassType.FIXED_LINEAR_VELOCITY, 0, new Vector2(-300,0));
+        //player.getFixture(0).setSensor(true);
 
         this.world.addBody(player);
-//        GameObject gameObject = new GameObject(ImageRenderer.create("assets/images/green_square.png"));
-//        gameObject.getPosition().set(100, 100);
-//        this.world.addBody(gameObject);
     }
 
     @Override
@@ -77,8 +77,9 @@ public class GameWindow extends SimulationFrame{
             Convex convex1 = fixture1.getShape();
             Penetration p = new Penetration();
             if (np.detect(convex1,transform1,convex2,transform2,p)){
-                if (player == body1 || player == body2){
-                    System.out.println("Player collide");
+                if ((player == body1 && body2.getClass() == Obstacle.class) ||
+                    (body1.getClass() == Obstacle.class && player == body2)){
+                    System.out.println("Collide");
                 }
             }
         }
@@ -96,29 +97,9 @@ public class GameWindow extends SimulationFrame{
         return new Vector2(xx, yy);
     }
 
-    private void addFloor() {
-        Rectangle rectShape = new Rectangle(100, 20);
-        rectShape.rotate(Math.PI / 6);
-        GameObject rectangle = new GameObject();
-        rectangle.addFixture(rectShape);
-        rectangle.setMass(MassType.INFINITE);
-        rectangle.setColor(Color.red);
-        rectangle.setAngularVelocity(5.4);
-        rectangle.setLinearVelocity(10, 0);
-        this.world.addBody(rectangle);
-
-
-        Circle circleShape = new Circle(10);
-        GameObject circle = new GameObject();
-        circle.addFixture(circleShape);
-        circle.setMass(MassType.NORMAL);
-        circle.setColor(Color.RED);
-        circle.translate(5, 10);
-        this.world.addBody(circle);
-    }
     private void addObstacle() {
         Obstacle obstacle1 = new Obstacle(new Circle(20), 0, MassType.INFINITE, 0, new Vector2(0, 0), new Vector2(-200, 0));
-        obstacle1.setColor(Color.blue);
+        obstacle1.setColor(Color.RED);
         this.world.addBody(obstacle1);
     }
 }

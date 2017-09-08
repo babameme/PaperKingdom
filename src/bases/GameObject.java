@@ -1,11 +1,6 @@
 package bases;
-import bases.renderers.FixtureRenderer;
-import bases.renderers.Graphics2DRenderer;
-import bases.renderers.ImageRenderer;
 import bases.renderers.Renderer;
 import org.dyn4j.dynamics.Body;
-import org.dyn4j.dynamics.BodyFixture;
-import org.dyn4j.geometry.Convex;
 import org.dyn4j.geometry.Vector2;
 
 import java.awt.*;
