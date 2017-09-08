@@ -1,4 +1,4 @@
-package simulations;
+package paper.simulations;
 
 import bases.GameObject;
 import org.dyn4j.geometry.Vector2;

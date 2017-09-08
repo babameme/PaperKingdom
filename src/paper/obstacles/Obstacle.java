@@ -1,5 +1,6 @@
-package obstacles;
+package paper.obstacles;
 import bases.GameObject;
+import bases.renderers.FixtureRenderer;
 import org.dyn4j.geometry.Convex;
 import org.dyn4j.geometry.MassType;
 import org.dyn4j.geometry.Vector2;
@@ -16,27 +17,16 @@ public class Obstacle extends GameObject {
     private Vector2 linearVelocity;
     private Vector2 position;
     private Color color;
-    private int type;
-    /**
-     * Type = 0 : Ke dich
-     * Type = 1 : Ban cua minh
-     */
-    public Obstacle(Convex convex, double rotation, MassType massType, double angularVelocity, Vector2 linearVelocity, Vector2 position, int type) {
+
+    public Obstacle(Convex convex, double rotation, MassType massType, double angularVelocity, Vector2 linearVelocity, Vector2 position) {
+        super();
         this.convex = convex;
         this.rotation = rotation;
         this.massType = massType;
         this.angularVelocity = angularVelocity;
         this.linearVelocity = linearVelocity;
         this.position = position;
-        this.type = type;
-        switch (this.type){
-            case 0:
-                color = type0;
-                break;
-            case 1:
-                color = type1;
-                break;
-        }
+
         convex.rotate(rotation);
         this.addFixture(convex);
         this.setMass(massType);
@@ -44,5 +34,7 @@ public class Obstacle extends GameObject {
         this.setAngularVelocity(angularVelocity);
         this.setLinearVelocity(linearVelocity);
         this.translate(position);
+        this.renderer = new FixtureRenderer();
     }
+
 }

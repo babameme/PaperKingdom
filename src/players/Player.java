@@ -38,11 +38,8 @@ public class Player extends GameObject{
         this.setAngularVelocity(angularVelocity);
         this.setLinearVelocity(linearVelocity);
         this.translate(position);
-    }
 
-    @Override
-    public void setColor(Color color) {
-        this.color = color;
+        this.renderer = new FixtureRenderer();
     }
 
     //TODO: Fix to drag

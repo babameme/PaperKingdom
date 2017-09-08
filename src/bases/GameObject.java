@@ -22,48 +22,15 @@ public class GameObject extends Body{
         //this.renderer = new BasicRenrer(convex, color);
         //this.renderer = new ImageRenderer(image);
         super();
-        this.renderer = new FixtureRenderer();
-        this.color = new Color(
-                (float)Math.random() * 0.5f + 0.5f,
-                (float)Math.random() * 0.5f + 0.5f,
-                (float)Math.random() * 0.5f + 0.5f);
         position = new Vector2(0.0, 0.0);
-    }
-
-    public GameObject(Color color){
-        super();
-        this.color = color;
-    }
-
-    public GameObject(ImageRenderer imageRenderer){
-        super();
-        this.renderer = imageRenderer;
-        position = new Vector2(0.0, 0.0);
-    }
-
-    public GameObject(ImageRenderer imageRenderer, Vector2 position){
-        super();
-        this.renderer = imageRenderer;
-        this.position = position;
-    }
-
-    public GameObject(FixtureRenderer fixtureRenderer){
-        super();
-        this.renderer = fixtureRenderer;
-        this.color = new Color(
-                (float)Math.random() * 0.5f + 0.5f,
-                (float)Math.random() * 0.5f + 0.5f,
-                (float)Math.random() * 0.5f + 0.5f);
-    }
-
-    public GameObject(FixtureRenderer fixtureRenderer, Color color){
-        super();
-        this.renderer = fixtureRenderer;
-        this.color = color;
     }
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public void setRenderer(Renderer renderer) {
+        this.renderer = renderer;
     }
 
     public void render(Graphics2D g2d, double scale){

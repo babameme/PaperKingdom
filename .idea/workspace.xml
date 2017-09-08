@@ -2,9 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61d9cb44-677d-415e-bfdb-5ed306b14918" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/paper/obstacles/Obstacle.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/paper/simulations/Camera.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/paper/simulations/SimulationFrame.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ci-platformer-begin/obstacles/Obstacle.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ci-platformer-begin/simulations/Camera.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ci-platformer-begin/simulations/SimulationFrame$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ci-platformer-begin/simulations/SimulationFrame.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/obstacles/Obstacle.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/simulations/Camera.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/simulations/SimulationFrame.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ci-platformer-begin/GameWindow.class" afterPath="$PROJECT_DIR$/out/production/ci-platformer-begin/GameWindow.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ci-platformer-begin/bases/GameObject.class" afterPath="$PROJECT_DIR$/out/production/ci-platformer-begin/bases/GameObject.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ci-platformer-begin/players/Player.class" afterPath="$PROJECT_DIR$/out/production/ci-platformer-begin/players/Player.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameWindow.java" afterPath="$PROJECT_DIR$/src/GameWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/dyn4j/dynamics/World.java" afterPath="$PROJECT_DIR$/src/org/dyn4j/dynamics/World.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/bases/GameObject.java" afterPath="$PROJECT_DIR$/src/bases/GameObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/players/Player.java" afterPath="$PROJECT_DIR$/src/players/Player.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,76 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="61" column="41" lean-forward="true" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Fixture.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/dyn4j/collision/Fixture.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="181" column="23" lean-forward="false" selection-start-line="181" selection-start-column="23" selection-end-line="181" selection-end-column="23" />
-              <folding>
-                <element signature="e#6397#6398#0" expanded="true" />
-                <element signature="e#6422#6423#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Camera.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simulations/Camera.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1309#1310#0" expanded="true" />
-                <element signature="e#1340#1341#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameObject.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/bases/GameObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/players/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
-              <caret line="56" column="9" lean-forward="true" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1355#1356#0" expanded="true" />
-                <element signature="e#1389#1390#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MouseManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/bases/inputs/MouseManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="45" lean-forward="true" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+            <state relative-caret-position="250">
+              <caret line="111" column="45" lean-forward="true" selection-start-line="111" selection-start-column="45" selection-end-line="111" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,10 +43,20 @@
         </entry>
       </file>
       <file leaf-file-name="Obstacle.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/obstacles/Obstacle.java">
+        <entry file="file://$PROJECT_DIR$/src/paper/obstacles/Obstacle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="45" column="33" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="45" selection-end-column="33" />
+            <state relative-caret-position="34">
+              <caret line="2" column="39" lean-forward="true" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Camera.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/paper/simulations/Camera.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,14 +64,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/dyn4j/dynamics/World.java">
+      <file leaf-file-name="SimulationFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/paper/simulations/SimulationFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="119" column="69" lean-forward="true" selection-start-line="119" selection-start-column="69" selection-end-line="119" selection-end-column="69" />
+            <state relative-caret-position="272">
+              <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
               <folding>
-                <element signature="e#7288#7289#0" expanded="true" />
-                <element signature="e#7332#7333#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -175,11 +132,14 @@
         <option value="$PROJECT_DIR$/src/bases/renderers/Renderer.java" />
         <option value="$PROJECT_DIR$/src/bases/renderers/FixtureRenderer.java" />
         <option value="$PROJECT_DIR$/src/simulations/GameObject.java" />
-        <option value="$PROJECT_DIR$/src/bases/GameObject.java" />
-        <option value="$PROJECT_DIR$/src/obstacles/Obstacle.java" />
         <option value="$PROJECT_DIR$/src/bases/inputs/MouseManager.java" />
         <option value="$PROJECT_DIR$/src/simulations/SimulationFrame.java" />
+        <option value="$PROJECT_DIR$/src/bases/GameObject.java" />
+        <option value="$PROJECT_DIR$/src/obstacles/Obstacle.java" />
         <option value="$PROJECT_DIR$/src/players/Player.java" />
+        <option value="$PROJECT_DIR$/src/paper/obstacles/Obstacle.java" />
+        <option value="$PROJECT_DIR$/src/paper/simulations/Camera.java" />
+        <option value="$PROJECT_DIR$/src/paper/simulations/SimulationFrame.java" />
         <option value="$PROJECT_DIR$/src/GameWindow.java" />
       </list>
     </option>
@@ -234,25 +194,27 @@
               <item name="ci-paperkingdom" type="b2602c69:ProjectViewProjectNode" />
               <item name="ci-paperkingdom" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="bases" type="462c0819:PsiDirectoryNode" />
+              <item name="paper" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ci-paperkingdom" type="b2602c69:ProjectViewProjectNode" />
               <item name="ci-paperkingdom" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="paper" type="462c0819:PsiDirectoryNode" />
               <item name="obstacles" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ci-paperkingdom" type="b2602c69:ProjectViewProjectNode" />
               <item name="ci-paperkingdom" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="players" type="462c0819:PsiDirectoryNode" />
+              <item name="paper" type="462c0819:PsiDirectoryNode" />
+              <item name="simulations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ci-paperkingdom" type="b2602c69:ProjectViewProjectNode" />
               <item name="ci-paperkingdom" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simulations" type="462c0819:PsiDirectoryNode" />
+              <item name="players" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -471,17 +433,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/images/green_square_small.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/green_square.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/Platform.java" />
     <entry file="file://$PROJECT_DIR$/src/game/Player.java" />
     <entry file="file://$PROJECT_DIR$/src/bases/scenes/SceneManager.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -692,16 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/bases/renderers/FixtureRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/dyn4j/geometry/Rectangle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -778,9 +719,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -799,21 +738,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="33">
           <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1309#1310#0" expanded="true" />
-            <element signature="e#1340#1341#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/obstacles/Obstacle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="45" column="33" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="45" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -825,33 +750,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/dyn4j/collision/Fixture.java">
+    <entry file="file://$PROJECT_DIR$/src/bases/renderers/FixtureRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="181" column="23" lean-forward="false" selection-start-line="181" selection-start-column="23" selection-end-line="181" selection-end-column="23" />
-          <folding>
-            <element signature="e#6397#6398#0" expanded="true" />
-            <element signature="e#6422#6423#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/players/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
-          <caret line="56" column="9" lean-forward="true" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1355#1356#0" expanded="true" />
-            <element signature="e#1389#1390#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="61" column="41" lean-forward="true" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
+        <state relative-caret-position="271">
+          <caret line="16" column="47" lean-forward="true" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -860,8 +762,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/bases/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="21" column="37" lean-forward="false" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+        <state relative-caret-position="153">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#915#916#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/dyn4j/collision/Fixture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="181" column="23" lean-forward="false" selection-start-line="181" selection-start-column="23" selection-end-line="181" selection-end-column="23" />
+          <folding>
+            <element signature="e#6397#6398#0" expanded="true" />
+            <element signature="e#6422#6423#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/obstacles/Obstacle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/players/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/paper/obstacles/Obstacle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="39" lean-forward="true" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/paper/simulations/Camera.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/paper/simulations/SimulationFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="111" column="45" lean-forward="true" selection-start-line="111" selection-start-column="45" selection-end-line="111" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

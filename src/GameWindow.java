@@ -1,6 +1,6 @@
 import bases.inputs.MouseManager;
 import bases.renderers.ImageRenderer;
-import obstacles.Obstacle;
+import paper.obstacles.Obstacle;
 import org.dyn4j.collision.broadphase.BroadphasePair;
 import org.dyn4j.collision.narrowphase.Gjk;
 import org.dyn4j.collision.narrowphase.NarrowphaseDetector;
@@ -11,7 +11,7 @@ import org.dyn4j.geometry.*;
 import org.dyn4j.geometry.Rectangle;
 import players.Player;
 import bases.GameObject;
-import simulations.SimulationFrame;
+import paper.simulations.SimulationFrame;
 
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -117,7 +117,8 @@ public class GameWindow extends SimulationFrame{
         this.world.addBody(circle);
     }
     private void addObstacle() {
-        Obstacle obstacle1 = new Obstacle(new Circle(20), 0, MassType.INFINITE, 0, new Vector2(0, 0), new Vector2(-200, 0), 0);
+        Obstacle obstacle1 = new Obstacle(new Circle(20), 0, MassType.INFINITE, 0, new Vector2(0, 0), new Vector2(-200, 0));
+        obstacle1.setColor(Color.blue);
         this.world.addBody(obstacle1);
     }
 }
