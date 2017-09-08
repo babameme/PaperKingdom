@@ -5,6 +5,7 @@ import org.dyn4j.geometry.Convex;
 import org.dyn4j.geometry.MassType;
 import org.dyn4j.geometry.Vector2;
 
+import java.awt.*;
 import java.util.Vector;
 
 public class Obstacle extends GameObject {
@@ -17,6 +18,7 @@ public class Obstacle extends GameObject {
         this.setAngularVelocity(angularVelocity);
         this.setLinearVelocity(linearVelocity);
         this.translate(position);
+        this.color = Color.RED;
         this.renderer = new FixtureRenderer();
     }
 

@@ -13,9 +13,6 @@ public class GameObject extends Body{
     private Vector2 position;
 
     public GameObject(){
-        //super();
-        //this.renderer = new BasicRenrer(convex, color);
-        //this.renderer = new ImageRenderer(image);
         super();
         position = new Vector2(0.0, 0.0);
     }
@@ -41,7 +38,7 @@ public class GameObject extends Body{
         g2d.setTransform(ot);
     }
 
-    public void update(){
+    public void update(double elapsedTime){
 
     }
 

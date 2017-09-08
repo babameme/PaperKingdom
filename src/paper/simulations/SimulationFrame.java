@@ -1,6 +1,8 @@
 package paper.simulations;
 
 import bases.GameObject;
+import bases.settings.Settings;
+import bases.Constraints;
 import org.dyn4j.dynamics.World;
 import org.dyn4j.geometry.Vector2;
 
@@ -14,7 +16,8 @@ import java.awt.image.BufferStrategy;
 public abstract class SimulationFrame extends JFrame{
     public static final double NANO_TO_BASE = 1.0e9;
     protected final Canvas canvas;
-    protected final World world;
+    public static World world;
+    public static Constraints constraint;
     protected final double scale;
     protected final Dimension size;
     private long lastTimeUpdate, currentTime, diff;
@@ -31,7 +34,8 @@ public abstract class SimulationFrame extends JFrame{
         super(name);
         this.scale = scale;
         this.world = new World();
-        size = new Dimension(736, 414);
+        constraint = new Constraints(0,Settings.instance.getGamePlayHeight(),0,Settings.instance.getGamePlayWidth());
+        size = new Dimension(Settings.instance.getGamePlayWidth(), Settings.instance.getGamePlayHeight());
         this.canvas = new Canvas();
         this.canvas.setPreferredSize(size);
         this.canvas.setMinimumSize(size);
@@ -94,7 +98,7 @@ public abstract class SimulationFrame extends JFrame{
     protected void update(Graphics2D g2d, double elapsedTime) {
         for (int i = 0; i < this.world.getBodyCount(); i++) {
             GameObject gameObject = (GameObject) this.world.getBody(i);
-            gameObject.update();
+            gameObject.update(elapsedTime);
 //            if(i == 1)
 //            camera.follow(gameObject);
         }
@@ -115,7 +119,7 @@ public abstract class SimulationFrame extends JFrame{
     }
 
     protected void clear(Graphics2D g2d){
-        g2d.setColor(Color.YELLOW);
+        g2d.setColor(Color.WHITE);
         g2d.fillRect(-w/2, -h/2, w, h);
     }
 

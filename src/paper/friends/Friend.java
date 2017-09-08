@@ -6,6 +6,8 @@ import org.dyn4j.geometry.Convex;
 import org.dyn4j.geometry.MassType;
 import org.dyn4j.geometry.Vector2;
 
+import java.awt.*;
+
 public class Friend extends GameObject{
     public Friend(Convex convex, double rotation, MassType massType, double angularVelocity, Vector2 linearVelocity, Vector2 position) {
         super();
@@ -15,6 +17,7 @@ public class Friend extends GameObject{
         this.setAngularVelocity(angularVelocity);
         this.setLinearVelocity(linearVelocity);
         this.translate(position);
+        this.setColor(Color.BLUE);
         this.renderer = new FixtureRenderer();
     }
 }
